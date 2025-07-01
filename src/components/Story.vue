@@ -16,7 +16,7 @@ watch(currentStageID, () => {
 
 </script>
 <template>
-    <Typing v-if="currentStageID === 0" :text="storyData[currentStoryID - 1].description"/>
-    <End v-else-if="currentStageID === storyData[currentStoryID - 1].stages.length + 1" :data="storyData"/>
+    <Typing v-if="currentStageID === 1" :text="storyData[currentStoryID - 1].description"/>
+    <End v-else-if="currentStageID === storyData[currentStoryID - 1].stages.length + 2" :data="storyData"/>
     <Stage v-else :key="stageKey" :data="storyData"/>
 </template>

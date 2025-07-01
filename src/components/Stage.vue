@@ -12,7 +12,7 @@ const forwardStageID = () => {
 
 // load data from props
 const { data } = defineProps(['data'])
-var stageData = data[currentStoryID.value - 1].stages[currentStageID.value - 1]
+var stageData = data[currentStoryID.value - 1].stages[currentStageID.value - 2]
 
 
 // score calculation
