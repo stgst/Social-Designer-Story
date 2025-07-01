@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
+@import "tailwindcss";
+
+* {
+  font-family: 'Noto Serif TC', serif;
+}
+
+@font-face {
+  font-family: 'chenyu'; /* 這是你在 CSS 裡會使用的名字 */
+  src: url('/public/assets/fonts/ChenYuluoyan-20-Thin.woff2') format('woff2'); /* 路徑要與 preload 相同 */
+  font-display: swap; /* 建議加上，提高效能與避免閃字 */
+}
