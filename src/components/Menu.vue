@@ -15,15 +15,17 @@ const selectStoryID = () => {
     <div id="bg-wrapper" class="fixed inset-0 -z-10 bg-black opacity-50"></div>
 
     <div class="min-h-screen justify-center items-center flex flex-col">
-        <div>
-            <h1 class="text-center text-4xl md:text-5xl font-bold text-white mb-8">留下來的不止影像</h1>
-            <button
-                    class="my-3 w-full py-5 bg-gray-300 text-gray-700 text-xl rounded-2xl font-bold shadow-[0px_10px_0_0_rgba(0,0,0,1)] hover:cursor-pointer hover:bg-gray-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100"
+        <div class="justify-center items-center flex flex-col">
+            <div class="absolute top-[35%]">
+                <h1 class="text-center text-4xl md:text-5xl font-bold text-white mb-8">〈留下來的不止影像〉</h1>
+                <button
+                    class="mt-2 w-full py-5 bg-blue-100 text-gray-700 text-xl rounded-2xl font-bold shadow-[0px_10px_0_0_rgba(0,0,0,1)] hover:cursor-pointer hover:bg-blue-50 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100 animate__animated animate__pulse animate__slow animate__infinite"
                     @click="selectStoryID()">
-                    開始遊戲
+                    點擊按鈕，開始遊戲 ❗️
                 </button>
-            <div class="text-white text-center mt-10">
-                <div class="flex justify-center gap-5">
+            </div>
+            <div class="absolute bottom-15 flex flex-col items-center mb-5">
+                <div class="flex justify-center gap-20">
                     <a href="https://www.instagram.com/have_genderandluck/" target="_blank">
                         <svg class="w-10 h-10 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -47,8 +49,13 @@ const selectStoryID = () => {
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778" />
                         </svg>
-
                     </a>
+                </div>
+                <div class="flex items-center mt-6">
+                    <p class="text-4xl text-white" style="font-family: 'chenyu';">
+                        Social Designer @
+                    </p>
+                    <img src="@/assets/logo.png" alt="Social Designer Logo" class="w-30 h-auto">
                 </div>
             </div>
         </div>
