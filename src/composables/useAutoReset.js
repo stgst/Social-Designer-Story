@@ -8,8 +8,8 @@ export function useAutoReset(stage, story, timeout = 5000) {
   function resetTimer() {
     if (timer) clearTimeout(timer)
     timer = setTimeout(() => {
-      stage.value = 0
-      story.value = 0
+      stage.value = -1
+      story.value = -1
     }, timeout)
   }
 

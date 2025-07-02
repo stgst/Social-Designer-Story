@@ -4,30 +4,24 @@ import { inject } from 'vue'
 const currentStoryID = inject('currentStoryID')
 const currentStageID = inject('currentStageID')
 
-const selectStoryID = (index) => {
-    currentStoryID.value = index + 1
+const selectStoryID = () => {
+    currentStoryID.value += 1
     currentStageID.value += 1
 }
 
 </script>
 <template>
-    <div id="bg" class="bg-[url('@/assets/bg.jpg')] fixed inset-0 -z-10 bg-cover bg-center"></div>
+    <div id="bg" class="bg-[url('./assets/bg.jpg')] fixed inset-0 -z-10 bg-cover bg-center"></div>
     <div id="bg-wrapper" class="fixed inset-0 -z-10 bg-black opacity-50"></div>
 
     <div class="min-h-screen justify-center items-center flex flex-col">
         <div>
             <h1 class="text-center text-4xl md:text-5xl font-bold text-white mb-8">留下來的不止影像</h1>
-            <p
-                class="text-center text-lg md:text-xl text-white mb-8 animate__animated animate__flash animate__slower animate__infinite">
-                請選擇章節..</p>
-            <div v-for="(btn, index) in ['《我只是看到了而已》', '《我以為不會有事》', '《她不再跟我說話了》', '《我只是做了一個平台》', '《不是我，卻也無處可逃》']"
-                class="flex flex-col items-center">
-                <button
+            <button
                     class="my-3 w-full py-5 bg-gray-300 text-gray-700 text-xl rounded-2xl font-bold shadow-[0px_10px_0_0_rgba(0,0,0,1)] hover:cursor-pointer hover:bg-gray-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100"
-                    @click="selectStoryID(index)">
-                    {{ btn }}
+                    @click="selectStoryID()">
+                    開始遊戲
                 </button>
-            </div>
             <div class="text-white text-center mt-10">
                 <div class="flex justify-center gap-5">
                     <a href="https://www.instagram.com/have_genderandluck/" target="_blank">
