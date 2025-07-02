@@ -4,6 +4,7 @@ import { inject, defineProps, onMounted } from 'vue'
 // initialize varables
 const currentStoryID = inject('currentStoryID')
 const currentStageID = inject('currentStageID')
+const playerData = inject('playerData')
 
 // next stage
 const forwardStageID = () => {
@@ -19,6 +20,11 @@ var stageData = data[currentStoryID.value - 1].stages[currentStageID.value - 2]
 const playerScore = inject('playerScore')
 const scoreCalculate = (index) => {
     playerScore.value += index + 1
+    playerData.value.push({
+        storyID: currentStoryID.value,
+        stageID: currentStageID.value,
+        choice: stageData.choice[index],
+    })
     forwardStageID()
 }
 
@@ -56,7 +62,7 @@ onMounted(() => {
                 <div v-for="(btn, index) in stageData.choice" class="flex flex-col items-center ">
                     <button
                         class="my-3 w-[70%] px-2 py-5 bg-violet-50 text-gray-700 text-sm md:text-xl rounded-2xl font-medium shadow-[0px_10px_0_0_rgba(0,0,0,1)] hover:cursor-pointer hover:bg-white active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100"
-                        @click="scoreCalculate(index)" id="choice" v-html="btn" hidden>
+                        @click="scoreCalculate(index)" id="choice" v-html="btn" >
                     </button>
                 </div>
             </div>

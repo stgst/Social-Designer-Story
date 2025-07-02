@@ -2,7 +2,7 @@
 
 import { watch, onUnmounted } from 'vue'
 
-export function useAutoReset(stage, story, timeout = 5000) {
+export function useAutoReset(stage, story, playerData, playerScore, timeout = 5000) {
   let timer = null
 
   function resetTimer() {
@@ -10,6 +10,8 @@ export function useAutoReset(stage, story, timeout = 5000) {
     timer = setTimeout(() => {
       stage.value = -1
       story.value = -1
+      playerScore.value = 0
+      playerData.value = []
     }, timeout)
   }
 
