@@ -2,10 +2,10 @@
 
 const pieces = [
   { clipPath: 'polygon(0% 0%, 0% 60%, 50% 0)', imageUrl: '1_0.jpg', position: '500% 0%' },                 // 左上三角
+  { clipPath: 'polygon(0% 60%, 50% 47.5%, 30% 100%, 0% 100%)', imageUrl: '2_0.jpg', position: '200% 100%' }, // 左下梯形
   { clipPath: 'polygon(50% 0, 60% 0%, 80% 40%, 0% 60%)', imageUrl: '3_0.jpg' }, //中間梯形
   { clipPath: 'polygon(60% 0%, 100% 0,100% 60%, 100% 80%)', imageUrl: '4_0.jpg' }, // 右上梯形
   { clipPath: 'polygon(50% 47.5%, 80% 40%, 100% 80%, 100% 100%, 30% 100%)', imageUrl: '5_0.jpg' }, // 右下五邊形
-  { clipPath: 'polygon(0% 60%, 50% 47.5%, 30% 100%, 0% 100%)', imageUrl: '2_0.jpg', position: '200% 100%' }, // 左下梯形
 
 ]
 import { inject } from 'vue'
@@ -31,7 +31,7 @@ const selectStoryID = (index) => {
       backgroundPosition: piece.position || 'top left',
     }"
       class="piece absolute w-full h-full bg-cover opacity-70 transition-transform duration-500 ease-in-out cursor-pointer hover:transition-transform hover:opacity-100"
-      @click="selectStoryID(index)" v-html="hi"></div>
+      @click="selectStoryID(index)"></div>
   </div>
 
   <div class="flex md:hidden min-h-screen justify-center items-center flex-col">
