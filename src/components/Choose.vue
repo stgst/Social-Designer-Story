@@ -34,7 +34,7 @@ const selectStoryID = (index) => {
       @click="selectStoryID(index)" v-html="hi"></div>
   </div>
 
-  <div class="min-h-screen justify-center items-center flex flex-col">
+  <div class="flex md:hidden min-h-screen justify-center items-center flex-col">
     <div id="bg" class="bg-[url('/assets/bg.jpg')] fixed inset-0 -z-10 bg-cover bg-center"></div>
     <div id="bg-wrapper" class="fixed inset-0 -z-10 bg-black opacity-50"></div>
     <div>
