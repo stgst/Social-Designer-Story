@@ -30,7 +30,7 @@ const reset = () => {
 </script>
 <template>
     <div class="animate__animated animate__fadeIn">
-        <div id="bg" :style="{ 'background-image': `url('./assets/${stageData.bgImage}')` }"
+        <div id="bg" :style="{ 'background-image': `url('./assets/images/${stageData.bgImage}')` }"
             class=" fixed inset-0 -z-10 bg-cover bg-center"></div>
         <div id="bg-wrapper" class="fixed inset-0 -z-10 bg-black opacity-50"></div>
 

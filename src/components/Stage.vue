@@ -39,9 +39,9 @@ onMounted(() => {
 </script>
 <template>
     <div class="animate__animated animate__fadeIn">
-        <div id="bg" :style="{ 'background-image': `url('./assets/${stageData.bgImage}')` }"
+        <div id="bg" :style="{ 'background-image': `url('./assets/images/${stageData.bgImage}')` }"
             class=" fixed inset-0 -z-10 bg-cover bg-center"></div>
-        <div id="bg-wrapper" class="fixed inset-0 -z-10 bg-black opacity-50"></div>
+        <div id="bg-wrapper" class="fixed inset-0 -z-10 bg-black opacity-70"></div>
 
         <div class="flex flex-col items-center justify-center min-h-screen">
             <div class="text-center w-[90%] md:w-[55%]">
