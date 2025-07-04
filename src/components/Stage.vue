@@ -35,7 +35,7 @@ const delayAnimation = () => {
             elem.hidden = false
             elem.classList.add('animate__animated', 'animate__fadeIn', 'animate__slower')
         })
-    }, (stageData.description.length) / 8 * 1400)
+    }, (stageData.description.length) / 8 * 1000)
 }
 
 onMounted(() => {
@@ -62,7 +62,7 @@ onMounted(() => {
                 <div v-for="(btn, index) in stageData.choice" class="flex flex-col items-center ">
                     <button
                         class="my-3 w-[70%] px-2 py-5 bg-violet-50 text-gray-700 text-sm md:text-xl rounded-2xl font-medium shadow-[0px_10px_0_0_rgba(0,0,0,1)] hover:cursor-pointer hover:bg-white active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100"
-                        @click="scoreCalculate(index)" id="choice" v-html="btn" >
+                        @click="scoreCalculate(index)" id="choice" v-html="btn" hidden>
                     </button>
                 </div>
             </div>

@@ -2,12 +2,12 @@
 import Menu from '@/components/Menu.vue'
 import Story from '@/components/Story.vue'
 import Choose from '@/components/Choose.vue'
-import { ref, provide, onUnmounted} from 'vue'
+import { ref, provide } from 'vue'
 
 const currentStoryID = ref(-1)
 const currentStageID = ref(-1)
 const playerScore = ref(0)
-const playerData = ref([new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' })])
+const playerData = ref([])
 provide('currentStoryID', currentStoryID)
 provide('currentStageID', currentStageID)
 provide('playerScore', playerScore)

@@ -14,7 +14,7 @@ const delayAnimation = () => {
             elem.hidden = false
             elem.classList.add('animate__animated', 'animate__fadeIn', 'animate__slower')
         })
-    }, (props.text.length) / 10 * 1200)
+    }, (props.text.length) / 8 * 1000)
 }
 
 onMounted(() => {

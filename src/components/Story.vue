@@ -7,7 +7,8 @@ import storyData from '@/assets/story.json'
 
 const currentStageID = inject('currentStageID')
 const currentStoryID = inject('currentStoryID')
-const playerScore = inject('playerScore')
+const playerData = inject('playerData')
+playerData.value.push(new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }))
 
 const stageKey = ref(0)
 watch(currentStageID, () => {

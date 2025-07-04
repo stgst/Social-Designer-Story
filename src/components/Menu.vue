@@ -15,14 +15,16 @@ const selectStoryID = () => {
     <div id="bg-wrapper" class="fixed inset-0 -z-10 bg-black opacity-50"></div>
 
     <div class="min-h-screen justify-center items-center flex flex-col">
-        <div class="justify-center items-center flex flex-col">
-            <div class="absolute top-[35%]">
+        <div class="items-center flex flex-col">
+            <div class="mb-30 md:mabsolute md:top-[35%]">
                 <h1 class="text-center text-4xl md:text-5xl font-bold text-white mb-8">〈留下來的不止影像〉</h1>
-                <button
-                    class="mt-2 w-full py-5 bg-blue-100 text-gray-700 text-xl rounded-2xl font-bold shadow-[0px_10px_0_0_rgba(0,0,0,1)] hover:cursor-pointer hover:bg-blue-50 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100 animate__animated animate__pulse animate__slow animate__infinite"
-                    @click="selectStoryID()">
-                    點擊按鈕，開始遊戲 ❗️
-                </button>
+                <div class="items-center flex flex-col">
+                    <button
+                        class="mt-2 w-[80%] py-5 bg-blue-100 text-gray-700 text-xl rounded-2xl font-bold shadow-[0px_10px_0_0_rgba(0,0,0,1)] hover:cursor-pointer hover:bg-blue-50 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100 animate__animated animate__pulse animate__slow animate__infinite"
+                        @click="selectStoryID()">
+                        點擊按鈕，開始遊戲 ❗️
+                    </button>
+                </div>
             </div>
             <div class="absolute bottom-15 flex flex-col items-center mb-5">
                 <div class="flex justify-center gap-20">

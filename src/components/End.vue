@@ -1,6 +1,6 @@
 <script setup>
 
-import { inject, defineProps } from 'vue'
+import { inject, defineProps, onMounted } from 'vue'
 
 // initialize variables
 const currentStoryID = inject('currentStoryID')
@@ -23,14 +23,22 @@ if (playerScore.value <= 10) {
 }
 // reset function
 const reset = () => {
+    currentStoryID.value = -1
+    currentStageID.value = -1
     playerScore.value = 0
     playerData.value = []
 }
 
-const returnData = async () => {
-    currentStoryID.value = -1
-    currentStageID.value = -1
-    
+const toggleModal = (Omodal) => {
+    const modal = document.getElementById(Omodal)
+    if (modal.style.display === 'block') {
+        modal.style.display = 'none'
+    } else {
+        modal.style.display = 'block'
+    }
+}
+
+onMounted(async () => {
     var url = "https://script.google.com/macros/s/AKfycbwhX385N0OQTbjojeZeDQ3a2OEGloZlqJnnI9zvr9J_36Z4RY2Ok9bgjty70ibdRD-1/exec"
 
     try {
@@ -57,10 +65,8 @@ const returnData = async () => {
     } catch (error) {
         console.error('Error:', error)
         // 即使發生錯誤也繼續執行 reset，讓用戶可以繼續使用
-    } finally {
-        reset()
     }
-}
+})
 
 
 </script>
@@ -80,11 +86,93 @@ const returnData = async () => {
                 <p class="animate__animated animate__fadeIn animate__delay-1s text-center text-lg md:text-2xl text-white mb-5"
                     v-html="endData.description"></p>
             </div>
-            <button
-                class="mt-10 my-3 w-[35%] md:w-[15%] py-5 bg-gray-300 text-gray-500 text-md rounded-2xl font-bold shadow-[0px_10px_0_0_rgba(80,80,80,1)] hover:cursor-pointer hover:bg-gray-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100 animate__animated animate__fadeIn animate__delay-1s"
-                @click="returnData()">
-                選擇其他章節
-            </button>
+            <div class="w-full flex justify-center items-center gap-5">
+                <button
+                    class="mt-10 my-3 py-3 px-3 bg-blue-50 text-gray-500 text-md rounded-full font-bold shadow-[0px_5px_0_0_rgba(80,80,80,1)] hover:cursor-pointer hover:bg-gray-400 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100 animate__animated animate__fadeIn animate__delay-1s"
+                    @click="reset()">
+                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 12h14M5 12l4-4m-4 4 4 4" />
+                    </svg>
+
+                </button>
+                <a target="_blank" href="https://forms.gle/uh52ugGAcgSXxotKA"
+                    class="block md:hidden mt-10 w-[25%] md:w-[15%] my-3 ">
+                    <button
+                        class="py-5 px-3 bg-blue-50 text-gray-700 text-md rounded-2xl font-bold shadow-[0px_10px_0_0_rgba(80,80,80,1)] hover:cursor-pointer hover:bg-gray-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100 animate__animated animate__fadeIn animate__delay-1s">
+                        回饋表單
+                    </button>
+                </a>
+                <button
+                    class="hidden md:block mt-10 my-3 w-[25%] md:w-[15%] py-5 bg-blue-50 text-gray-700 text-md rounded-2xl font-bold shadow-[0px_10px_0_0_rgba(80,80,80,1)] hover:cursor-pointer hover:bg-gray-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100 animate__animated animate__fadeIn animate__delay-1s"
+                    @click="toggleModal('modal-form')">
+                    回饋表單
+                </button>
+                <div id="modal-form" class="absolute top-50 bottom-50" style="display: none;">
+                    <div id="title"
+                        class="text-white flex justify-center items-center animate__animated animate__fadeIn">
+                        <div class="mx-auto px-4 w-xs md:w-md text-center text-lg">
+                            <br><br>
+                            <div class="bg-white shadow-lg rounded-xl p-6 text-black text-left">
+                                <div class="flex justify-between mb-6">
+                                    <h1 class="text-2xl font-bold text-center">回饋表單（請用手機掃描）</h1>
+                                    <button @click="toggleModal('modal-form')" class="hover:cursor-pointer">
+                                        <svg class="w-6 h-6 text-gray-800 dark:text-white " aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <center class="mb-3">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://forms.gle/uh52ugGAcgSXxotKA">
+                                </center>
+                            </div>
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+
+                <a target="_blank" v-bind:href="'https://story.havegenderluck.org/#/chat?chapter=' + currentStoryID"
+                    class="block md:hidden mt-10 w-[25%] md:w-[15%] my-3 ">
+                    <button
+                        class="py-5 px-3 bg-blue-200 text-gray-700 text-md rounded-2xl font-bold shadow-[0px_10px_0_0_rgba(80,80,80,1)] hover:cursor-pointer hover:bg-gray-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100 animate__animated animate__fadeIn animate__delay-1s">
+                        與 AI 對話
+                    </button>
+                </a>
+                <button
+                    class="hidden md:block mt-10 my-3 w-[25%] md:w-[15%] py-5 bg-blue-200 text-gray-700 text-md rounded-2xl font-bold shadow-[0px_10px_0_0_rgba(80,80,80,1)] hover:cursor-pointer hover:bg-gray-100 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100 animate__animated animate__fadeIn animate__delay-1s"
+                    @click="toggleModal('modal-ai')">
+                    與 AI 對話
+                </button>
+                <div id="modal-ai" class="absolute top-50 bottom-50" style="display: none;">
+                    <div id="title"
+                        class="text-white flex justify-center items-center animate__animated animate__fadeIn">
+                        <div class="mx-auto px-4 w-xs md:w-md text-center text-lg">
+                            <br><br>
+                            <div class="bg-white shadow-lg rounded-xl p-6 text-black text-left">
+                                <div class="flex justify-between mb-6">
+                                    <h1 class="text-2xl font-bold text-center">與角色對話（請用手機掃描）</h1>
+                                    <button @click="toggleModal('modal-ai')" class="hover:cursor-pointer">
+                                        <svg class="w-6 h-6 text-gray-800 dark:text-white " aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <center class="mb-3">
+                                    <img v-bind:src="'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Fstory.havegenderluck.org%2F%23%2Fchat%3Fchapter%3D' + currentStoryID">
+                                </center>
+                            </div>
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
