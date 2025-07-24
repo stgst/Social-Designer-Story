@@ -37,9 +37,9 @@ const selectStoryID = (index) => {
   <div class="flex md:hidden min-h-screen justify-center items-center flex-col">
     <div id="bg" class="bg-[url('/assets/bg.jpg')] fixed inset-0 -z-10 bg-cover bg-center"></div>
     <div id="bg-wrapper" class="fixed inset-0 -z-10 bg-black opacity-50"></div>
-    <div>
+    <div class="w-[80%]">
       <p
-        class="text-center text-2xl text-white mb-3 animate__animated animate__flash animate__slower animate__infinite">
+        class="text-center text-4xl text-white mb-3 animate__animated animate__flash animate__slower animate__infinite">
         請選擇章節..</p>
       <div v-for="(btn, index) in ['《我只是看到了而已》', '《我以為不會有事》', '《她不再跟我說話了》', '《我只是做了一個平台》', '《不是我，卻也無處可逃》']"
         class="flex flex-col items-center">

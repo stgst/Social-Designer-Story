@@ -61,7 +61,7 @@ onMounted(() => {
                 </p>
                 <div v-for="(btn, index) in stageData.choice" class="flex flex-col items-center ">
                     <button
-                        class="my-3 w-[70%] px-2 py-5 bg-violet-50 text-gray-700 text-sm md:text-xl rounded-2xl font-medium shadow-[0px_10px_0_0_rgba(0,0,0,1)] hover:cursor-pointer hover:bg-white active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100"
+                        class="my-3 w-full px-2 py-5 bg-violet-50 text-gray-700 text-sm md:text-xl rounded-2xl font-medium shadow-[0px_10px_0_0_rgba(0,0,0,1)] hover:cursor-pointer hover:bg-white active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform duration-100"
                         @click="scoreCalculate(index)" id="choice" v-html="btn" hidden>
                     </button>
                 </div>

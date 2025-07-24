@@ -54,7 +54,7 @@ const selectStoryID = () => {
                     </a>
                 </div>
                 <div class="flex items-center mt-6">
-                    <p class="text-4xl text-white" style="font-family: 'chenyu';">
+                    <p class="text-4xl text-white" style="font-family: 'ChenYuLuoYan';">
                         Social Designer @
                     </p>
                     <img src="@/assets/logo.png" alt="Social Designer Logo" class="w-30 h-auto">

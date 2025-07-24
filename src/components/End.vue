@@ -23,10 +23,10 @@ if (playerScore.value <= 10) {
 }
 // reset function
 const reset = () => {
-    currentStoryID.value = -1
-    currentStageID.value = -1
     playerScore.value = 0
     playerData.value = []
+    currentStageID.value = -1
+    currentStoryID.value = -1
 }
 
 const toggleModal = (Omodal) => {
@@ -39,7 +39,8 @@ const toggleModal = (Omodal) => {
 }
 
 onMounted(async () => {
-    var url = "https://script.google.com/macros/s/AKfycbwhX385N0OQTbjojeZeDQ3a2OEGloZlqJnnI9zvr9J_36Z4RY2Ok9bgjty70ibdRD-1/exec"
+//    var url = "https://script.google.com/macros/s/AKfycbwhX385N0OQTbjojeZeDQ3a2OEGloZlqJnnI9zvr9J_36Z4RY2Ok9bgjty70ibdRD-1/exec"
+    var url = "https://localhost/"
 
     try {
         // 使用 form data 格式避免 CORS preflight
@@ -109,7 +110,7 @@ onMounted(async () => {
                     @click="toggleModal('modal-form')">
                     回饋表單
                 </button>
-                <div id="modal-form" class="absolute top-50 bottom-50" style="display: none;">
+                <div id="modal-form" class="absolute top-50 bottom-50 z-30" style="display: none;">
                     <div id="title"
                         class="text-white flex justify-center items-center animate__animated animate__fadeIn">
                         <div class="mx-auto px-4 w-xs md:w-md text-center text-lg">
@@ -126,9 +127,9 @@ onMounted(async () => {
                                         </svg>
                                     </button>
                                 </div>
-                                <center class="mb-3">
+                                <div class="mb-3 flex items-center justify-center">
                                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://forms.gle/uh52ugGAcgSXxotKA">
-                                </center>
+                                </div>
                             </div>
                             <br><br>
                         </div>
@@ -164,9 +165,9 @@ onMounted(async () => {
                                         </svg>
                                     </button>
                                 </div>
-                                <center class="mb-3">
+                                <div class="mb-3 flex items-center justify-center">
                                     <img v-bind:src="'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Fstory.havegenderluck.org%2F%23%2Fchat%3Fchapter%3D' + currentStoryID">
-                                </center>
+                                </div>
                             </div>
                             <br><br>
                         </div>
@@ -178,6 +179,6 @@ onMounted(async () => {
 </template>
 <style scoped>
 #role {
-    font-family: 'chenyu';
+    font-family: 'ChenYuLuoYan';
 }
 </style>
