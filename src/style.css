@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
-@import url('https://font.emtech.cc/css/ChenYuLuoYan?min=true');
 @import "tailwindcss";
 
 * {
   font-family: 'Noto Serif TC', serif;
+  font-display: swap;
+}
+@font-face {
+    font-family: 'ChenYuLuoYan';
+    font-display: swap;
+    src: url('https://font.emtech.cc/file/original-fonts/ChenYuLuoYan/100.ttf') format('truetype');
 }
